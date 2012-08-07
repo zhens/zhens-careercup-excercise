@@ -1,0 +1,33 @@
+//============================================================================
+// Name        : Chapter5.cpp
+// Author      : Zhen Shao
+// Version     :
+// Copyright   : Your copyright notice
+// Description : Hello World in C++, Ansi-style
+//============================================================================
+
+#include <iostream>
+using namespace std;
+#include "SZTools.h"
+using namespace SZTools;
+
+#include <stdio.h>
+
+void	test5_2(){
+	FILE	*fin;
+	fin = fopen("input.txt","r");
+	string	str[10];
+	int index = 0;
+	while( true){
+		char	c;
+		while( fscanf(fin,"%c",&c) == 1){
+			if( c != EOL)
+				str[index]+= c;
+			else
+				break;
+		}
+		index = (index+1)%10;
+	}
+	for(int i = 0; i< 10; i++)
+		printf("%s\n", str[(index+i)%10]);
+}

@@ -1,0 +1,5 @@
+
+
+f[i][k]  =  divide int i, largest part <= k
+
+f[i][k] = f[i-k][k] + f[i][k-1];
